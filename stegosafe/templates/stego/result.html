@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result | StegoSafe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body { font-family: 'Roboto', sans-serif; }
+      h1, h2 { font-family: 'Luckiest Guy', cursive; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-100 via-lime-100 to-emerald-100 min-h-screen flex flex-col items-center justify-center p-4">
+  <div class="w-full max-w-lg bg-white/80 rounded-3xl shadow-2xl p-8 flex flex-col gap-8 border-4 border-dashed border-green-300 animate__animated animate__fadeIn">
+    <h1 class="text-4xl text-emerald-600 text-center mb-2 drop-shadow-lg"> StegoSafe Results </h1>
+    {% if image_url %}
+      <div class="flex flex-col items-center gap-4">
+        <h2 class="text-2xl text-green-600 text-center">Message encoded successfully!</h2>
+        <img src="{{ image_url }}" alt="Encoded Image" class="rounded-xl border-4 border-lime-200 shadow-lg max-w-xs mx-auto">
+        <a href="{{ image_url }}" download class="mt-2 inline-block bg-gradient-to-r from-emerald-400 to-lime-300 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:from-emerald-500 hover:to-lime-400 transition-all duration-300 text-lg">⬇️ Download Image</a>
+      </div>
+    {% endif %}
+    {% if hidden_message %}
+      <div class="flex flex-col items-center gap-2">
+        <h2 class="text-2xl text-lime-600 text-center">Decoded Message:</h2>
+        <div class="bg-lime-50 border-2 border-green-200 rounded-xl p-4 text-lg text-gray-800 shadow-inner w-full text-center break-words">{{ hidden_message }}</div>
+      </div>
+    {% endif %}
+    <div class="text-center mt-6">
+      <a href="/" class="inline-block bg-gradient-to-r from-green-400 to-emerald-300 text-white font-bold py-2 px-6 rounded-full shadow-lg hover:from-green-500 hover:to-emerald-400 transition-all duration-300 text-lg">🏠 Back to Home</a>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+</body>
+</html>
